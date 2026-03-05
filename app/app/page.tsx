@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div className="bg-sky-50 flex flex-col gap-3 items-center justify-center min-h-screen p-3">
-      <div className="bg-white flex flex-col gap-3 p-3 rounded-md border border-sky-300 w-lg">
+      <div className="bg-white flex flex-col gap-3 p-3 rounded-md border border-sky-300">
         <div className="flex flex-row gap-3">
           <input
             type="text"
@@ -39,14 +39,12 @@ export default function Home() {
             Fill in
           </button>
         </div>
-      </div>
-      <div className="bg-white flex flex-col gap-3 p-3 rounded-md border border-sky-300 w-lg">
         <input
           type="text"
           className="input w-full"
           readOnly
-          placeholder="Name here..."
-          value={name}
+          value={`Name: ${name ? name : "empty..."}`}
+          onClick={() => navigator.clipboard.writeText(name.toString())}
         />
       </div>
     </div>
